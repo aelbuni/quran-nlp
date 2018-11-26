@@ -36,11 +36,8 @@ stem_not = ['الله', 'لله', 'إلهكم', 'اله', 'لله', 'إلهكم'
 # [On/Off] Stemming the words to reduce dimensionality except stem_not list
 # df['verse'] = df['verse'].map(lambda x: [w if w in stem_not else st.stem(w) for w in x])
 
-# Filter for one surah for testing
-# baqarah = df[df['surah'] == 19]
-baqarah = df
-
-verses = baqarah['verse'].values.tolist()
+# You can filter for one surah too if you want!
+verses = df['verse'].values.tolist()
 
 # train model
 model = Word2Vec(verses, min_count=15, window=7, workers=8, alpha=0.22)
