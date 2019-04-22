@@ -1,5 +1,8 @@
 
+# -*- coding: UTF-8 -*-
 import pandas as pd
+from tkinter import *
+import tkinter as tk
 import nltk
 import arabic_reshaper
 import matplotlib.pyplot as plt 
@@ -83,5 +86,23 @@ def print_similar_word_cloud(one_word, topn):
     temp_list=model.wv.most_similar(positive=[one_word], negative=[], topn=topn)
     similar_words=[i[0] for i in temp_list]
     print_word_cloud_ar(similar_words)
-# an arbtary example to use wordcloud 
-print_similar_word_cloud("الحمد",50)
+
+# simple gui but arabic is reversed in text box not a problem after clicking button
+root = tk.Tk()
+User_input = Entry()
+User_input.pack()
+
+def func(event):
+    print_similar_word_cloud(User_input.get(),50)
+
+root.bind('<Return>', func)
+
+def onclick():
+    print_similar_word_cloud(User_input.get(),50)
+
+reshaped_text2 = arabic_reshaper.reshape("إدخل الكلمة التي تريد البحث عنها")
+artext2 = get_display(reshaped_text2)
+button = tk.Button(root, text=artext2, command=onclick)
+button.pack()
+
+root.mainloop()
