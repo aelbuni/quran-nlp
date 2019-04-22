@@ -1,3 +1,4 @@
+
 import pandas as pd
 import nltk
 import arabic_reshaper
@@ -56,7 +57,7 @@ for i, word in enumerate(words):
     reshaped_text = arabic_reshaper.reshape(word)
     artext = get_display(reshaped_text)
     plt.annotate(artext, xy=(result[i, 0], result[i, 1]))
-plt.show()
+# plt.show()
 
 def print_word_cloud_ar(artext_list):
     """Takes a list of Arabic words to print cloud."""
@@ -65,7 +66,8 @@ def print_word_cloud_ar(artext_list):
     artext = get_display(reshaped_text)
     
     # Build the Arabic word cloud
-    wordc = WordCloud(font_path='tahoma',background_color='white',width=2000,height=1000).generate(artext)
+    # use KacstOne font for linux systems because the other fonts cause errors
+    wordc = WordCloud(font_path='KacstOne',background_color='white',width=2000,height=1000).generate(artext)
     
     # Draw the word cloud
     plt.imshow(wordc) 
@@ -77,6 +79,8 @@ def print_word_cloud_ar(artext_list):
     
 def print_similar_word_cloud(one_word, topn):
     """Takes an Arabic word and print similar word cloud for top number of words {$topn}."""
-    temp_list=model.most_similar(positive=[one_word], negative=[], topn=topn)
+    temp_list=model.wv.most_similar(positive=[one_word], negative=[], topn=topn)
     similar_words=[i[0] for i in temp_list]
     print_word_cloud_ar(similar_words)
+# an arbtary example touse wordcloud 
+print_similar_word_cloud("الحمد",50)
