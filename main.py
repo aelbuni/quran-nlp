@@ -57,7 +57,7 @@ for i, word in enumerate(words):
     reshaped_text = arabic_reshaper.reshape(word)
     artext = get_display(reshaped_text)
     plt.annotate(artext, xy=(result[i, 0], result[i, 1]))
-    plt.show()
+    #plt.show()
 
 def print_word_cloud_ar(artext_list):
     """Takes a list of Arabic words to print cloud."""
