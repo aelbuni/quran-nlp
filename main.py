@@ -53,11 +53,12 @@ plt.scatter(result[:, 0], result[:, 1])
 words = list(model.wv.vocab)
 
 # Pass list of words as an argument
-for i, word in enumerate(words):
-    reshaped_text = arabic_reshaper.reshape(word)
-    artext = get_display(reshaped_text)
-    plt.annotate(artext, xy=(result[i, 0], result[i, 1]))
-    #plt.show()
+# disable for now in order to show the one below
+# for i, word in enumerate(words):
+   # reshaped_text = arabic_reshaper.reshape(word)
+   # artext = get_display(reshaped_text)
+   # plt.annotate(artext, xy=(result[i, 0], result[i, 1]))
+   # plt.show()
 
 def print_word_cloud_ar(artext_list):
     """Takes a list of Arabic words to print cloud."""
@@ -82,5 +83,5 @@ def print_similar_word_cloud(one_word, topn):
     temp_list=model.wv.most_similar(positive=[one_word], negative=[], topn=topn)
     similar_words=[i[0] for i in temp_list]
     print_word_cloud_ar(similar_words)
-# an arbtary example touse wordcloud 
+# an arbtary example to use wordcloud 
 print_similar_word_cloud("الحمد",50)
