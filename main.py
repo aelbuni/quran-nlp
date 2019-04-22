@@ -63,6 +63,19 @@ words = list(model.wv.vocab)
    # plt.annotate(artext, xy=(result[i, 0], result[i, 1]))
    # plt.show()
 
+def get_platform():
+    platforms = {
+        'linux1' : 'Linux',
+        'linux2' : 'Linux',
+        'darwin' : 'OS X',
+        'win32' : 'Windows'
+    }
+    if sys.platform not in platforms:
+        return sys.platform
+    
+    return platforms[sys.platform]
+
+
 def print_word_cloud_ar(artext_list):
     """Takes a list of Arabic words to print cloud."""
     full_string = ' '.join(artext_list)
@@ -71,8 +84,10 @@ def print_word_cloud_ar(artext_list):
     
     # Build the Arabic word cloud
     # use KacstOne font for linux systems because the other fonts cause errors
-    wordc = WordCloud(font_path='KacstOne',background_color='white',width=2000,height=1000).generate(artext)
-    
+    if get_platform() == "linux":
+        wordc = WordCloud(font_path='KacstOne',background_color='white',width=2000,height=1000).generate(artext)
+    else:
+        wordc = WordCloud(font_path='tahoma',background_color='white',width=2000,height=1000).generate(artext)
     # Draw the word cloud
     plt.imshow(wordc) 
     plt.axis("off") 
