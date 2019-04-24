@@ -1,4 +1,8 @@
+
+# -*- coding: UTF-8 -*-
 import pandas as pd
+from tkinter import *
+import tkinter as tk
 import nltk
 import arabic_reshaper
 import matplotlib.pyplot as plt 
@@ -52,11 +56,25 @@ plt.scatter(result[:, 0], result[:, 1])
 words = list(model.wv.vocab)
 
 # Pass list of words as an argument
-for i, word in enumerate(words):
-    reshaped_text = arabic_reshaper.reshape(word)
-    artext = get_display(reshaped_text)
-    plt.annotate(artext, xy=(result[i, 0], result[i, 1]))
-plt.show()
+# disable for now in order to show the one below
+# for i, word in enumerate(words):
+   # reshaped_text = arabic_reshaper.reshape(word)
+   # artext = get_display(reshaped_text)
+   # plt.annotate(artext, xy=(result[i, 0], result[i, 1]))
+   # plt.show()
+
+def get_platform():
+    platforms = {
+        'linux1' : 'Linux',
+        'linux2' : 'Linux',
+        'darwin' : 'OS X',
+        'win32' : 'Windows'
+    }
+    if sys.platform not in platforms:
+        return sys.platform
+    
+    return platforms[sys.platform]
+
 
 def print_word_cloud_ar(artext_list):
     """Takes a list of Arabic words to print cloud."""
@@ -65,8 +83,11 @@ def print_word_cloud_ar(artext_list):
     artext = get_display(reshaped_text)
     
     # Build the Arabic word cloud
-    wordc = WordCloud(font_path='tahoma',background_color='white',width=2000,height=1000).generate(artext)
-    
+    # use KacstOne font for linux systems because the other fonts cause errors
+    if get_platform() == "linux":
+        wordc = WordCloud(font_path='KacstOne',background_color='white',width=2000,height=1000).generate(artext)
+    else:
+        wordc = WordCloud(font_path='tahoma',background_color='white',width=2000,height=1000).generate(artext)
     # Draw the word cloud
     plt.imshow(wordc) 
     plt.axis("off") 
@@ -77,6 +98,26 @@ def print_word_cloud_ar(artext_list):
     
 def print_similar_word_cloud(one_word, topn):
     """Takes an Arabic word and print similar word cloud for top number of words {$topn}."""
-    temp_list=model.most_similar(positive=[one_word], negative=[], topn=topn)
+    temp_list=model.wv.most_similar(positive=[one_word], negative=[], topn=topn)
     similar_words=[i[0] for i in temp_list]
     print_word_cloud_ar(similar_words)
+
+# simple gui but arabic is reversed in text box not a problem after clicking button
+root = tk.Tk()
+User_input = Entry()
+User_input.pack()
+
+def func(event):
+    print_similar_word_cloud(User_input.get(),50)
+
+root.bind('<Return>', func)
+
+def onclick():
+    print_similar_word_cloud(User_input.get(),50)
+
+reshaped_text2 = arabic_reshaper.reshape("إدخل الكلمة التي تريد البحث عنها")
+artext2 = get_display(reshaped_text2)
+button = tk.Button(root, text=artext2, command=onclick)
+button.pack()
+
+root.mainloop()
