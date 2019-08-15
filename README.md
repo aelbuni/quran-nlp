@@ -1,5 +1,15 @@
-# quran-nlp
-quran-nlp is an opensource project that aims to provide a boilerplate to help researchers to mine for knowledge from the Quran easily
+Good day Sir.
+I created a copy of your project on Google CoLab.
+Below is the link
 
-# The code is still in a prototype form. Improvement for code structure is in progress
-The structure of the code will be changed soon to become more OOP friendly
+https://colab.research.google.com/drive/16yM1je2SoKn8N2AyPt3GrvkdLQrSXhzo
+
+this is a read write link
+
+I can help with Many OOP like C# VB.net
+I use angular 2 - 8 If you would like also I can help.
+
+I think CoLab is easier to shar the results but if you do not like I will remove the link.
+
+
+Thanks
