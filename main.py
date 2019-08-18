@@ -115,7 +115,7 @@ root.bind('<Return>', func)
 def onclick():
     print_similar_word_cloud(User_input.get(),50)
 
-reshaped_text2 = arabic_reshaper.reshape("إدخل الكلمة التي تريد البحث عنها")
+reshaped_text2 = arabic_reshaper.reshape("أدخل الكلمة التي تريد البحث عنها")
 artext2 = get_display(reshaped_text2)
 button = tk.Button(root, text=artext2, command=onclick)
 button.pack()
