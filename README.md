@@ -11,7 +11,7 @@ quran-nlp is an opensource project that aims to provide a boilerplate to help re
 from quran_nlp.quran_nlp import QuranContextToWords
 import matplotlib.pyplot as plt 
 
-# Instantiate a new obkect
+# Instantiate a new object
 contextToWords = QuranContextToWords()
 
 # Start the learning process and cache the model for use
