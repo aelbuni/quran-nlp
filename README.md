@@ -23,11 +23,11 @@ contextToWords.process_quran_book()
 plt.figure(1)
 plt.subplot(211)
 word = 'الجنة'
-contextToWords.print_similar_word_cloud(word, 50)
+contextToWords.print_similar_word_cloud(word, 20)
 
 plt.subplot(212)
-word = 'النار'
-contextToWords.print_similar_word_cloud(word, 50)
+word = 'الله'
+contextToWords.print_similar_word_cloud(word, 20)
 ```
 ## Result Plot
 Plotting two figures, the first for `Heaven`, and the second is `Allah`
