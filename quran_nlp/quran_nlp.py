@@ -29,7 +29,7 @@ class QuranContextToWords:
         except:
             print('Failed to load the quran book with err')
     
-    def process_quran_book(self) -> Word2Vec:
+    def process_quran_book(self, min_count=20, window=7, workers=8, alpha=0.22) -> Word2Vec:
         ''' Pass Quran Verses on data preparation stages '''
         
         if self._quran_data is None:
@@ -53,7 +53,7 @@ class QuranContextToWords:
         # You can filter for one surah too if you want!
         verses = self._quran_data['verse'].values.tolist()
 
-        self._build_model(verses)
+        self._build_model(verses, min_count, window, workers, alpha)
         
         
     def _build_model(self, processed_verses: List[str], min_count=20, window=7, workers=8, alpha=0.22):
