@@ -3,7 +3,7 @@
 https://medium.com/@aelbuni/modeling-topics-in-quran-using-machine-learning-nlp-b88ca23fb44d
 
 # quran-nlp
-quran-nlp is an opensource project that aims to provide a boilerplate to help researchers to mine for knowledge from the Quran easily
+quran-nlp is an opensource project that aims to provide a boilerplate to help researchers to mine for knowledge from the Quran
 
 # Usage example
 
