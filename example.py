@@ -1,7 +1,7 @@
 from quran_nlp.quran_nlp import QuranContextToWords
 import matplotlib.pyplot as plt 
 
-# Instantiate a new obkect
+# Instantiate a new object
 contextToWords = QuranContextToWords()
 
 ###################
