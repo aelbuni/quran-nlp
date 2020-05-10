@@ -1,0 +1,10 @@
+arabic-reshaper==2.0.15
+matplotlib==3.2.1
+nltk==3.5
+numpy==1.18.4
+pandas==1.0.3
+python-bidi==0.4.2
+sklearn==0.0
+smart-open==2.0.0
+wordcloud==1.7.0
+gensim==3.8.3
