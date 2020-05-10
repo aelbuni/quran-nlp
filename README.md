@@ -29,3 +29,7 @@ plt.subplot(212)
 word = 'النار'
 contextToWords.print_similar_word_cloud(word, 50)
 ```
+## Result Plot
+Plotting two figures, the first for `Heaven`, and the second is `Allah`
+
+![Quran NLP](sample.png "Quran ")
