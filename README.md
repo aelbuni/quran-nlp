@@ -35,7 +35,6 @@ contextToWords.process_quran_book(min_count, window, workers, alpha)
 
 # Start using the model and play with visualization
 # You can generate multiple plots through matlibplot as follows
-
 plt.figure(1)
 plt.subplot(211)
 word = 'الجنة'
