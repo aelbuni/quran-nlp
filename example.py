@@ -28,8 +28,10 @@ contextToWords.process_quran_book(min_count, window, workers, alpha)
 plt.figure(1)
 plt.subplot(211)
 word = 'الجنة'
-contextToWords.print_similar_word_cloud(word, 20)
+#Must add topn
+contextToWords.print_similar_word_cloud(word, 20,10)
 
 plt.subplot(212)
 word = 'الله'
-contextToWords.print_similar_word_cloud(word, 20)
+#Must add topn
+contextToWords.print_similar_word_cloud(word, 20,15)
