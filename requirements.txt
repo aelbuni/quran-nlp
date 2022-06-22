@@ -1,7 +1,7 @@
 arabic-reshaper==2.0.15
 matplotlib==3.2.1
 nltk==4.62.3
-numpy==1.18.4
+numpy==1.22.0
 pandas==1.0.3
 python-bidi==0.4.2
 sklearn==0.0
