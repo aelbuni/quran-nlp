@@ -85,8 +85,8 @@ class QuranContextToWords:
     
     def print_similar_word_cloud(self, one_word: str, save_to: str, topn: int):
         """Takes an Arabic word and print similar word cloud for top number of words {$topn}."""
-        
-        temp_tuple = self._word2vec_model.most_similar(positive=[one_word], negative=[], topn=topn)
+        #New gensim These methods moved from the full model (Word2Vec, Doc2Vec, FastText) object to its .wv subcomponent (of type KeyedVectors) many releases ago
+        temp_tuple = self._word2vec_model.wv.most_similar(positive=[one_word], negative=[], topn=topn)
         similar_words=[i[0] for i in temp_tuple]
         
         # Extract word weight to project it in the WordCloud plot
